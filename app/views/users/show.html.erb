@@ -1,0 +1,33 @@
+<div class="container px-5 px-sm-0 pt-3">
+  <div class="row">
+    <%= render "books/left", book:@book, user_id:@user_id %>
+    <div class="col-md-8">
+      <h2>Books</h2>
+
+      <table class="table">
+        <thead>
+        <tr>
+          <th></th>
+          <th>Title</th>
+          <th>Opinion</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @books.each do |book| %>
+        <tr>
+          <td>
+            <%= attachment_image_tag @user, :profile_image, size: "30x30", format:'jpeg', fallback:"no_image.jpg" %>
+          </td>
+          <td>
+            <%=link_to book_path(book.id) do %>
+              <%= book.title %>
+            <% end %>
+          </td>
+          <td><%= book.body %></td>
+        </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
