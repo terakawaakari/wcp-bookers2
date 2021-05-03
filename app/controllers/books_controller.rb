@@ -10,7 +10,7 @@ class BooksController < ApplicationController
     @book = Book.new(book_params)
     @book.user_id = current_user.id
    if @book.save
-      redirect_to books_path, notice:'You have created book successfully.'
+      redirect_to book_path(@book), notice:'You have created book successfully.'
    else
       @books = Book.page(params[:page]).reverse_order
       @user_id = current_user
@@ -20,6 +20,8 @@ class BooksController < ApplicationController
   end
 
   def show
+    @user_find = User.find_by(params[:id])
+    #@user_find_id = @user_find.id
     @book_find = Book.find(params[:id])
     @user = current_user
     @user_id = current_user
@@ -30,7 +32,7 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     @user_id = current_user
      unless @book.user == current_user
-       redirect_to books_path
+       redirect_to book_path(current_user)
      end
   end
 

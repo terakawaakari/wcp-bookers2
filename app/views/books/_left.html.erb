@@ -1,19 +1,19 @@
     <!--左側-->
-    <dev class="col-md-3 mr-5">
+    <dev class="col-md-3">
       <h2>User info</h2>
 
       <%= attachment_image_tag user_id, :profile_image, size: "50x50", format:'jpeg', fallback:"no_image.jpg" %>
 
-      <table class="table my-3">
-        <tr>
-          <th>name</th>
-          <td><%= current_user.name %></td>
-        </tr>
-        <tr>
-          <th>introduction</th>
-          <td><%= current_user.introduction %></td>
-        </tr>
-      </table>
+        <table class="table my-3">
+          <tr>
+            <th>name</th>
+            <td><%= current_user.name %></td>
+          </tr>
+          <tr>
+            <th>introduction</th>
+            <td><%= current_user.introduction %></td>
+          </tr>
+        </table>
 
       <div class="row-fluid">
         <%= link_to edit_user_path(current_user) do %>
