@@ -3,14 +3,10 @@
     <!--左側-->
     <dev class="col-md-3">
       <h2>User info</h2>
-      <!--% if @book.user == current_user %>-->
-        <!--%= attachment_image_tag current_user, :profile_image, size: "50x50", format:'jpeg', fallback:"no_image.jpg" %>-->
-      <!--% else %>-->
-        <%= attachment_image_tag @book_find.user, :profile_image, size: "50x50", format:'jpeg', fallback:"no_image.jpg" %>
-      <!--% end %>-->
 
-      <!--% if @book.user == current_user %>-->
-        <table class="table my-3">
+       <%= attachment_image_tag @book_find.user, :profile_image, size: "50x50", format:'jpeg', fallback:"no_image.jpg" %>
+
+       <table class="table my-3">
           <tr>
             <th>name</th>
             <td><%= @book_find.user.name %></td>
@@ -20,21 +16,9 @@
             <td><%= @book_find.user.introduction %></td>
           </tr>
         </table>
-      <!--% else %>-->
-        <!--table class="table my-3">-->
-          <!--tr>-->
-            <!--th>name</th>-->
-            <!--td>%= @user.name %></td>-->
-          <!--/tr>-->
-          <!--tr>-->
-            <!--th>introduction</th>-->
-            <!--td>%= @user.introduction %></td>-->
-          <!--/tr>-->
-        <!--/table>-->
-      <!--% end %>-->
 
       <div class="row-fluid">
-        <%= link_to edit_user_path(current_user) do %>
+        <%= link_to edit_user_path(@book_find.user) do %>
           <span class="btn btn-outline-secondary btn-block fas fa-user-cog"></span>
         <% end %>
       </div>
