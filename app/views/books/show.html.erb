@@ -60,11 +60,11 @@
           </td>
           <% if @book_find.user == current_user %>
           <td><%= link_to "Edit",edit_book_path(@book_find.id), class:"btn btn-sm btn-success" %></td>
-          <td><%= link_to "Destroy",book_path(@book_find), class:"btn btn-sm btn-danger",method: :delete %></td>
+          <td><%= link_to "Destroy",book_path(@book_find), class:"btn btn-sm btn-danger",method: :delete, data: { confirm: '削除しますか？' } %></td>
           <% end %>
         </tr>
       </table>
     </div>
-    <!--右側ここまで-->
+    <!--右側ここまで-->r
   </div>
 </div>

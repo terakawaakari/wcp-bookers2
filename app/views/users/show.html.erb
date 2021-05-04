@@ -3,11 +3,8 @@
     <!--左側-->
     <dev class="col-md-3">
       <h2>User info</h2>
-      <!--% if @book.user == current_user %>-->
-        <!--%= attachment_image_tag , :profile_image, size: "50x50", format:'jpeg', fallback:"no_image.jpg" %>-->
-      <!--% else %>-->
-        <%= attachment_image_tag @user, :profile_image, size: "50x50", format:'jpeg', fallback:"no_image.jpg" %>
-      <!--% end %>-->
+
+       <%= attachment_image_tag @user, :profile_image, size: "50x50", format:'jpeg', fallback:"no_image.jpg" %>
 
       <% if @book.user == current_user %>
         <table class="table my-3">

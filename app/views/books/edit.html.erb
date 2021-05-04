@@ -1,9 +1,12 @@
-<% if @book.errors.any? %>
-  <%= @book.errors.count %>errors prohibited this obj from being saved:
-  <% @book.errors.full_messages.each do |message| %>
-    <%= message %>
+<div class="text-danger mt-3 ml-5">
+  <% if @book.errors.any? %>
+    <div class="mb-2"><%= @book.errors.count %>errors prohibited this obj from being saved:</div>
+    <% @book.errors.full_messages.each do |message| %>
+      <%= message %><br>
+    <% end %>
   <% end %>
-<% end %>
+</div>
+
 <div class="container mt-3">
   <div class="row">
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">

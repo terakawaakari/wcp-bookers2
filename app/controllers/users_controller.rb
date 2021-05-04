@@ -14,7 +14,6 @@ class UsersController < ApplicationController
   end
 
   def edit
-    #@user_find = User.find_by(params[:id])
     @user = User.find(params[:id])
     @user_id = current_user
     unless @user == current_user
@@ -33,6 +32,7 @@ class UsersController < ApplicationController
   end
 
   private
+
   def user_params
     params.require(:user).permit(:name, :introduction, :profile_image)
   end
