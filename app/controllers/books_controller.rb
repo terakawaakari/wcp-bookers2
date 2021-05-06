@@ -49,6 +49,14 @@ class BooksController < ApplicationController
     redirect_to books_path
   end
 
+  def search
+    if params[:title].present?
+      @books = Book.where('title LIKE ?', "%#{params[:title]}%")
+    else
+      @books = Book.none
+    end
+  end
+
   private
   def book_params
     params.require(:book).permit(:title,:body)
