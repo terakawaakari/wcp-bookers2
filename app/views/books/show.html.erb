@@ -65,8 +65,22 @@
         </tr>
       </table>
 
+      <% if @book_find.favorited_by?(current_user) %>
+        <p>
+          <%= link_to book_favorites_path(@book_find), method: :delete, class:"mb-3" do %>
+            ♥<%= @book_find.favorites.count %> いいね
+          <% end %>
+        </p>
+      <% else %>
+        <p>
+          <%= link_to book_favorites_path(@book_find), method: :post do %>
+            ♡<%= @book_find.favorites.count %> いいね
+          <% end %>
+        </p>
+      <% end %>
+
       <div class="my-3">
-        <div><%= @book_find.post_comments.count %>件のコメント</div>
+        <div class="border-bottom"><%= @book_find.post_comments.count %>件のコメント</div>
         <div><%= attachment_image_tag @post_comment.user, :profile_image, size: "30x30", format:'jpeg' %></div>
         <% @book_find.post_comments.each do |post_comment| %>
           <div class="border-bottom">
