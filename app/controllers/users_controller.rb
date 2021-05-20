@@ -16,15 +16,18 @@ class UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
     @user_id = current_user
-    unless @user == current_user
-      redirect_to user_path(current_user)
+
+    if @user != current_user
+      redirect_to user_path(current_user), alert: "#{@user.name}のユーザー情報は変更できません"
+    elsif current_user.email == 'guest@example.com'
+      redirect_to user_path(current_user), alert: 'ゲストユーザー情報は変更できません'
     end
   end
 
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-    redirect_to user_path(@user.id), notice:"You have updated user successfully."
+    redirect_to user_path(@user.id), notice: "You have updated user successfully."
     else
       @user_id = current_user
       render :edit
