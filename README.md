@@ -1,24 +1,11 @@
-# README
+# Bookers2
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## DMM WEBCAMP 1ヶ月目 課題３
 
-Things you may want to cover:
+* テーマ：ユーザ機能を持ち、読んだ本の感想を投稿するサイト
 
-* Ruby version
+## 追加機能
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* いいね・コメント機能
+* 検索機能
+* ゲストユーザーログイン機能
