@@ -18,7 +18,7 @@ class UsersController < ApplicationController
     @user_id = current_user
 
     if @user != current_user
-      redirect_to user_path(current_user), alert: "#{@user.name}のユーザー情報は変更できません"
+      redirect_to user_path(current_user), alert: "#{@user.name}の情報は変更できません"
     elsif current_user.email == 'guest@example.com'
       redirect_to user_path(current_user), alert: 'ゲストユーザー情報は変更できません'
     end
