@@ -18,7 +18,7 @@
       </div>
       <div class="form-group">
       <h6>Image</h6>
-      <%= attachment_image_tag@user,:profile_image,size:"50x50" %>
+      <%= attachment_image_tag @user,:profile_image,size:"50x50" %>
       <%= f.attachment_field :profile_image,placeholder:"ファイルを選択" %>
       </div>
       <div class="form-group">
@@ -26,10 +26,9 @@
       <%= f.text_area :introduction, class:"form-control" %>
       </div>
       <div class="my-2">
-      <%= f.submit "Update User",class: "btn-secondary rounded" %>
+      <%= f.submit "Update User",class: "btn btn-sm btn-secondary" %>
       </div>
       <% end %>
-
     </div>
   </div>
 </div>

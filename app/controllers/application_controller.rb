@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
 
-  before_action :authenticate_user!,except: [:top, :about]
+  before_action :authenticate_user!,except: [:top, :about, :guest_sign_in]
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
@@ -10,6 +10,15 @@ class ApplicationController < ActionController::Base
 
   def after_sign_up_path_for(resource)
     user_path(@user.id)
+  end
+
+  def guest_sign_in
+    user = User.find_or_create_by!(email: 'guest@example.com') do |user|
+      user.password = SecureRandom.urlsafe_base64
+      user.name = 'ゲストユーザー'
+    end
+    sign_in user
+    redirect_to user_path(user.id), notice: 'ゲストユーザーとしてログインしました'
   end
 
   protected

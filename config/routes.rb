@@ -1,22 +1,22 @@
 Rails.application.routes.draw do
 
-  get 'create/destroy'
   root to: 'homes#top'
+  
+  devise_scope :user do
+    post 'users/guest_sign_in' => 'application#guest_sign_in'
+  end
+
   get 'home/about' => 'homes#about'
 
   get 'books/search' => 'books#search'
 
   devise_for :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
   resources :users, :only => [:index, :show, :edit, :update]
 
   resources :books do
     resources :post_comments, :only => [:create, :destroy]
     resource :favorites, :only => [:create, :destroy]
   end
-
-  #resources :books, :only => [:search] do
-    #get :search, on: :collection
-  #end
 
 end
